@@ -70,5 +70,3 @@ echo
 echo -e "${YELLOW}[8/8] FIX #6 - Script chiffrement auto rapports...${NC}"
 
 ENCRYPT_SCRIPT="$GHOST_ROOT/cron/encrypt_reports.sh"
-
-cat > "$ENCRYPT_SCRIPT" << 'EOFCRON'

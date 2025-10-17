@@ -165,5 +165,3 @@ echo
 echo -e "${YELLOW}[7/8] FIX #5 - Ajout validation inputs globale...${NC}"
 
 SANITIZE_LIB="$GHOST_ROOT/lib/sanitize.sh"
-
-cat > "$SANITIZE_LIB" << 'EOFLIB'
