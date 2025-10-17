@@ -94,10 +94,7 @@ install_tools() {
     echo -e "   🟢 $ok installés (incl. fallbacks)"
     echo -e "   🔴 $ko manquants"
 
-    local percent=0
-    if (( total > 0 )); then
-        percent=$(( ok * 100 / total ))
-    fi
+    local percent=$(( ok * 100 / total ))
     echo -e "   📊 Couverture : ${CYAN}${percent}%${NC} sur $total attendus"
     echo
     read -p "👉 Appuie sur [Entrée] pour revenir au menu..."
