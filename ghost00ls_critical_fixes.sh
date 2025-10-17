@@ -165,3 +165,156 @@ echo
 echo -e "${YELLOW}[7/8] FIX #5 - Ajout validation inputs globale...${NC}"
 
 SANITIZE_LIB="$GHOST_ROOT/lib/sanitize.sh"
+
+cat > "$SANITIZE_LIB" << 'EOFLIB'
+#!/bin/bash
+# sanitize.sh - Fonctions de validation et nettoyage inputs
+# Usage: source ~/ghost00ls/lib/sanitize.sh
+
+# Nettoyer input alphanumérique
+sanitize_alnum() {
+    echo "$1" | sed 's/[^a-zA-Z0-9._-]//g'
+}
+
+# Valider IP
+validate_ip() {
+    local ip=$1
+    if [[ ! "$ip" =~ ^[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}$ ]]; then
+        return 1
+    fi
+    
+    # Vérifier chaque octet <= 255
+    IFS='.' read -ra OCTETS <<< "$ip"
+    for octet in "${OCTETS[@]}"; do
+        if (( octet > 255 )); then
+            return 1
+        fi
+    done
+    return 0
+}
+
+# Valider domaine
+validate_domain() {
+    local domain=$1
+    if [[ ! "$domain" =~ ^[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$ ]]; then
+        return 1
+    fi
+    return 0
+}
+
+# Échapper HTML
+html_escape() {
+    echo "$1" | sed 's/&/\&amp;/g; s/</\&lt;/g; s/>/\&gt;/g; s/"/\&quot;/g; s/'"'"'/\&#39;/g'
+}
+
+# Échapper SQL (basique)
+sql_escape() {
+    echo "$1" | sed "s/'/''/g"
+}
+
+# Limiter longueur
+truncate_string() {
+    local str=$1
+    local max=${2:-256}
+    echo "${str:0:$max}"
+}
+EOFLIB
+
+chmod 644 "$SANITIZE_LIB"
+echo -e "${GREEN}✅ Bibliothèque sanitize.sh créée${NC}"
+echo -e "${CYAN}   Path : $SANITIZE_LIB${NC}"
+
+# Ajouter source dans modules critiques
+for module in "$GHOST_ROOT/modules/reporting.sh" \
+              "$GHOST_ROOT/modules/labs/dvwa/exploits.sh"; do
+    if [[ -f "$module" ]] && ! grep -q "source.*sanitize.sh" "$module"; then
+        sed -i '3a source ~/ghost00ls/lib/sanitize.sh' "$module"
+        echo -e "${GREEN}✅ sanitize.sh ajouté à $(basename $module)${NC}"
+    fi
+done
+
+# === FIX 6 : Chiffrement auto rapports sensibles ===
+echo
+echo -e "${YELLOW}[8/8] FIX #6 - Script chiffrement auto rapports...${NC}"
+
+ENCRYPT_SCRIPT="$GHOST_ROOT/cron/encrypt_reports.sh"
+
+cat > "$ENCRYPT_SCRIPT" << 'EOFCRON'
+#!/bin/bash
+# encrypt_reports.sh - Chiffrement automatique rapports sensibles
+# Cron: 0 2 * * * bash ~/ghost00ls/cron/encrypt_reports.sh
+
+REPORT_DIR=~/ghost00ls/reports
+LOG_FILE=~/ghost00ls/logs/system/encryption.log
+TIMESTAMP=$(date +"%F %T")
+
+# Vérifier GPG disponible
+if ! command -v gpg &>/dev/null; then
+    echo "[$TIMESTAMP] ❌ GPG non installé" >> "$LOG_FILE"
+    exit 1
+fi
+
+# Chiffrer rapports récents (< 24h)
+find "$REPORT_DIR" -name "*.md" -o -name "*.html" -mtime -1 2>/dev/null | while read -r file; do
+    # Skip si déjà chiffré
+    [[ -f "${file}.gpg" ]] && continue
+    
+    # Chiffrer
+    if gpg --batch --yes --encrypt --recipient ghost00ls@local "$file" 2>/dev/null; then
+        echo "[$TIMESTAMP] ✅ Chiffré : $(basename $file)" >> "$LOG_FILE"
+        
+        # Suppression sécurisée original
+        shred -u "$file" 2>/dev/null || rm -f "$file"
+    else
+        echo "[$TIMESTAMP] ❌ Échec chiffrement : $(basename $file)" >> "$LOG_FILE"
+    fi
+done
+
+echo "[$TIMESTAMP] Encryption job terminé" >> "$LOG_FILE"
+EOFCRON
+
+chmod +x "$ENCRYPT_SCRIPT"
+echo -e "${GREEN}✅ Script encrypt_reports.sh créé${NC}"
+echo -e "${CYAN}   Path : $ENCRYPT_SCRIPT${NC}"
+
+# Proposer ajout au cron
+echo
+read -p "📅 Ajouter au cron (chaque nuit 2h) ? [y/N] : " ADD_CRON
+if [[ "$ADD_CRON" =~ ^[yY]$ ]]; then
+    (crontab -l 2>/dev/null; echo "0 2 * * * bash $ENCRYPT_SCRIPT") | crontab -
+    echo -e "${GREEN}✅ Tâche cron ajoutée${NC}"
+fi
+
+# === Résumé final ===
+echo
+echo -e "${CYAN}=================================================${NC}"
+echo -e "${GREEN}✅ Correctifs appliqués avec succès !${NC}"
+echo -e "${CYAN}=================================================${NC}"
+echo
+echo -e "${YELLOW}📋 Résumé des actions :${NC}"
+echo -e "   1. ✅ config.sh permissions → 600"
+echo -e "   2. ✅ automation.sh typo corrigé"
+echo -e "   3. ✅ DVWA HTML tronqué réparé"
+echo -e "   4. ✅ install.sh division/0 protégée"
+echo -e "   5. ✅ sanitize.sh créé"
+echo -e "   6. ✅ encrypt_reports.sh créé"
+echo
+echo -e "${YELLOW}🔐 Sécurité :${NC}"
+echo -e "   • API keys protégées (chmod 600)"
+echo -e "   • Validation inputs disponible"
+echo -e "   • Chiffrement rapports configuré"
+echo
+echo -e "${YELLOW}💾 Backups :${NC}"
+echo -e "   • Backup complet : $BACKUP_DIR/ghost00ls_${TIMESTAMP}.tar.gz"
+echo -e "   • Backups fichiers : *.bak"
+echo
+echo -e "${CYAN}📚 Prochaines étapes recommandées :${NC}"
+echo -e "   1. Tester les modules critiques :"
+echo -e "      ${GREEN}bash ~/ghost00ls/ghost-menu.sh${NC}"
+echo -e "   2. Vérifier logs système :"
+echo -e "      ${GREEN}tail -f ~/ghost00ls/logs/system/*.log${NC}"
+echo -e "   3. Lancer audit shellcheck :"
+echo -e "      ${GREEN}shellcheck ~/ghost00ls/modules/**/*.sh${NC}"
+echo
+echo -e "${GREEN}🎉 Ghost00ls est maintenant plus sécurisé !${NC}"
+echo
