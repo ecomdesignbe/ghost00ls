@@ -49,24 +49,3 @@ truncate_string() {
     local max=${2:-256}
     echo "${str:0:$max}"
 }
-
-EOFLIB
-
-chmod 644 "$SANITIZE_LIB"
-echo -e "${GREEN}✅ Bibliothèque sanitize.sh créée${NC}"
-echo -e "${CYAN}   Path : $SANITIZE_LIB${NC}"
-
-# Ajouter source dans modules critiques
-for module in "$GHOST_ROOT/modules/reporting.sh" \
-              "$GHOST_ROOT/modules/labs/dvwa/exploits.sh"; do
-    if [[ -f "$module" ]] && ! grep -q "source.*sanitize.sh" "$module"; then
-        sed -i '3a source ~/ghost00ls/lib/sanitize.sh' "$module"
-        echo -e "${GREEN}✅ sanitize.sh ajouté à $(basename $module)${NC}"
-    fi
-done
-
-# === FIX 6 : Chiffrement auto rapports sensibles ===
-echo
-echo -e "${YELLOW}[8/8] FIX #6 - Script chiffrement auto rapports...${NC}"
-
-ENCRYPT_SCRIPT="$GHOST_ROOT/cron/encrypt_reports.sh"

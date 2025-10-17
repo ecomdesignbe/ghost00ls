@@ -1,6 +1,7 @@
 #!/bin/bash
 # reporting.sh - Génération automatique de rapports
 # Place in: ~/ghost00ls/modules/reporting.sh
+source ~/ghost00ls/lib/sanitize.sh
 
 source ~/ghost00ls/lib/colors.sh
 source ~/ghost00ls/lib/banner.sh
