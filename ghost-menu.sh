@@ -1,13 +1,12 @@
 #!/bin/bash
-# Ghost-Framework - Full CyberSec Edition
+# Ghost-Framework - Full CyberSec Edition v2.0
 # Author: Steve Vandenbossche (ecomdesign.be)
-# Platform: Raspberry Pi 5 - Kali Linux
+# Platform: Raspberry Pi 5 - ParrotOS ARM64
 
 # === Imports ===
 source ~/ghost00ls/lib/colors.sh
 source ~/ghost00ls/lib/banner.sh
 source ~/ghost00ls/lib/config.sh
-
 
 # === Menu Principal ===
 while true; do
@@ -42,9 +41,11 @@ while true; do
     echo -e "${CYAN}17) 📜  Compliance / Standards (NIST, ISO, NIS2…)${NC}"
     echo -e "${CYAN}18) 🎓  Training & Learn (TryHackMe / HTB / Labs)${NC}"
     echo
-    echo -e "${YELLOW}--- System ---${NC}"
+    echo -e "${YELLOW}--- System & Automation ---${NC}"
     echo -e "${CYAN}19) 🧱  System & Hardening${NC}"
     echo -e "${CYAN}20) 📂  Logs${NC}"
+    echo -e "${CYAN}21) 📝  Reporting & Export${NC} ${GREEN}[NEW]${NC}"
+    echo -e "${CYAN}22) 🤖  Automation & Scheduling${NC} ${GREEN}[NEW]${NC}"
     echo
     echo -e "${RED}0) ❌  Quitter${NC}"
     echo
@@ -66,11 +67,28 @@ while true; do
         13) bash ~/ghost00ls/modules/cross/cloud.sh ;;
         14) bash ~/ghost00ls/modules/cross/socialeng.sh ;;
         15) bash ~/ghost00ls/modules/cross/legallab.sh ;;
-        16) bash ~/ghost00ls/modules/cross/osint.sh ;;
+        16) 
+            clear
+            banner
+            echo -e "${CYAN}=== 🛰️ OSINT / Threat Intel ===${NC}"
+            echo
+            echo -e "${GREEN}1) 🔍 OSINT Tools${NC}"
+            echo -e "${GREEN}2) 🦠 Threat Intelligence (VirusTotal, AbuseIPDB, etc.)${NC}"
+            echo -e "${RED}0) Retour${NC}"
+            echo
+            read -p "👉 Choix : " osint_choice
+            case $osint_choice in
+                1) bash ~/ghost00ls/modules/cross/osint.sh ;;
+                2) bash ~/ghost00ls/modules/cross/threat_intel.sh ;;
+                0) ;;
+            esac
+            ;;
         17) bash ~/ghost00ls/modules/governance/compliance.sh ;;
         18) bash ~/ghost00ls/modules/governance/training.sh ;;
         19) bash ~/ghost00ls/modules/system/system_menu.sh ;;
         20) bash ~/ghost00ls/modules/logs.sh ;;
+        21) bash ~/ghost00ls/modules/reporting.sh ;;
+        22) bash ~/ghost00ls/modules/automation.sh ;;
         0) echo -e "${GREEN}Bye 👻 ${NC}"; exit 0 ;;
         *) echo -e "${RED}Option invalide !${NC}"; sleep 1 ;;
     esac

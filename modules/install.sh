@@ -160,12 +160,16 @@ install_summary() {
             fi
         done
 
+        # Correction : gestion propre de l'affichage
+        local percent=0
+        if (( total > 0 )); then
+            percent=$(( ok * 100 / total ))
+        fi
+
         if (( ko == 0 )); then
             echo -e "✅ ${CYAN}$cat${NC} : ${GREEN}100%${NC} ($ok/$total installés, incl. fallbacks)"
         else
-            local percent=$(( ok * 100 / total ))
-            # ⚠️ Correction ici : un seul espace après ⚠️
-            echo -e "⚠️ ${CYAN}$cat${NC} : ${YELLOW}${percent}%${NC} ($ok/$total installés, ${RED}$ko manquants${NC})"
+            echo -e "⚠️  ${CYAN}$cat${NC} : ${YELLOW}${percent}%${NC} ($ok/$total installés, ${RED}$ko manquants${NC})"
         fi
     done
 
