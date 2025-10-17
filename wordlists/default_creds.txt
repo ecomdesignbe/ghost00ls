@@ -1,0 +1,7 @@
+admin:admin
+admin:password
+root:root
+guest:guest
+user:user
+test:test
+admin:123456

