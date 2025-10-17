@@ -299,3 +299,60 @@ menu_automation() {
 }
 
 menu_automation
+# === Healthcheck système ===
+healthcheck_system() {
+    clear
+    banner
+    echo -e "${CYAN}=== 🏥 Healthcheck Système ===${NC}"
+    echo
+    
+    LOG_FILE="$LOG_DIR/system/healthcheck_$(date +%F_%H-%M-%S).log"
+    mkdir -p "$LOG_DIR/system" 2>/dev/null
+    
+    {
+        echo "=== HEALTHCHECK GHOST00LS - $(date) ==="
+        echo
+        
+        # CPU
+        echo "[CPU]"
+        top -bn1 | grep "Cpu(s)" | head -1 2>/dev/null || echo "N/A"
+        echo
+        
+        # RAM
+        echo "[MEMORY]"
+        free -h | grep -v "+" 2>/dev/null
+        echo
+        
+        # Disque
+        echo "[DISK]"
+        df -h / /home 2>/dev/null | grep -v "tmpfs"
+        echo
+        
+        # Services critiques
+        echo "[SERVICES]"
+        for service in ssh ufw fail2ban docker; do
+            if systemctl is-active --quiet "$service" 2>/dev/null; then
+                echo "✅ $service: RUNNING"
+            else
+                echo "❌ $service: STOPPED"
+            fi
+        done
+        echo
+        
+        # Connexions réseau
+        echo "[NETWORK]"
+        LISTENING=$(netstat -tuln 2>/dev/null | grep LISTEN | wc -l)
+        echo "$LISTENING ports ouverts en écoute"
+        echo
+        
+        # Processus Ghost00ls actifs
+        echo "[GHOST00LS PROCESSES]"
+        GHOST_PROCS=$(ps aux | grep -E "ghost|nmap|metasploit" | grep -v grep | wc -l)
+        echo "$GHOST_PROCS processus actifs"
+        
+    } | tee "$LOG_FILE"
+    
+    echo
+    echo -e "${GREEN}✅ Log sauvegardé : $LOG_FILE${NC}"
+    read -p "👉 Entrée pour revenir..."
+}
