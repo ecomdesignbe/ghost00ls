@@ -6,9 +6,9 @@
 # === API Keys (CRITICAL: Keep this file secure - chmod 600 recommended) ===
 
 # Groq AI (for GhostGPT)
-export GROQ_API_KEY="${GROQ_API_KEY:-}"  # Set via: export GROQ_API_KEY="gsk_xxxxx"
+export GROQ_API_KEY="YourAPIkeys"
 export GROQ_URL="https://api.groq.com/openai/v1/chat/completions"
-export GROQ_MODEL="llama-3.1-70b-versatile"  # Options: llama-3.1-8b-instant, mixtral-8x7b-32768
+export GROQ_MODEL="llama-3.1-8b-instant"  # Options: llama-3.1-8b-instant, mixtral-8x7b-32768, llama-3.1-70b-versatile
 
 # Shodan (for OSINT/Recon)
 export SHODAN_API_KEY="${SHODAN_API_KEY:-}"
