@@ -1,0 +1,22 @@
+# Fichiers de configuration
+lib/config.sh
+
+# Dossiers à ignorer
+logs/
+tmp/
+reports/
+tools/
+
+
+# Fichiers temporaires ou système
+*.log
+*.tmp
+*.bak
+.DS_Store
+
+# Divers
+modules/debug_installation.sh
+modules/fix_go_tools.sh
+modules/fix_missing_tools.sh
+modules/fix_parrot_tools.sh
+modules/fix_remaining_tools.sh
