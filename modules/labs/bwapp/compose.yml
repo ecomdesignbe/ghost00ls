@@ -1,0 +1,68 @@
+services:
+  bwapp:
+    image: php:8.1-apache
+    container_name: ghost-bwapp
+    platform: linux/arm64
+    restart: unless-stopped
+    ports:
+      - "8084:80"
+    environment:
+      - MYSQL_HOST=bwapp-db
+      - MYSQL_DATABASE=bwapp
+      - MYSQL_USER=bwapp
+      - MYSQL_PASSWORD=bug
+    volumes:
+      - bwapp-data:/var/www/html
+    depends_on:
+      - bwapp-db
+    command: >
+      bash -c "
+      apt-get update &&
+      apt-get install -y git wget unzip libpng-dev libjpeg-dev &&
+      docker-php-ext-install mysqli gd &&
+      if [ ! -f /var/www/html/install.php ]; then
+        cd /var/www/html &&
+        wget -q https://sourceforge.net/projects/bwapp/files/bWAPP/bWAPP_latest.zip &&
+        unzip -q bWAPP_latest.zip &&
+        rm bWAPP_latest.zip &&
+        chmod -R 777 /var/www/html;
+      fi &&
+      apache2-foreground
+      "
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://localhost/install.php"]
+      interval: 15s
+      timeout: 5s
+      retries: 5
+      start_period: 60s
+    networks:
+      - bwapp-network
+
+  bwapp-db:
+    image: mariadb:10.11
+    container_name: bwapp-db
+    platform: linux/arm64
+    restart: unless-stopped
+    environment:
+      MYSQL_ROOT_PASSWORD: bug
+      MYSQL_DATABASE: bwapp
+      MYSQL_USER: bwapp
+      MYSQL_PASSWORD: bug
+    volumes:
+      - bwapp-db-data:/var/lib/mysql
+    healthcheck:
+      test: ["CMD", "mysqladmin", "ping", "-h", "localhost", "-u", "bwapp", "-pbug"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+      start_period: 20s
+    networks:
+      - bwapp-network
+
+volumes:
+  bwapp-data:
+  bwapp-db-data:
+
+networks:
+  bwapp-network:
+    driver: bridge

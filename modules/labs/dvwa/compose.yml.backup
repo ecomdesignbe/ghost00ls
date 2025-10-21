@@ -1,8 +1,7 @@
 services:
   dvwa-db:
-    image: mariadb:10.11
+    image: mariadb:10.5
     container_name: dvwa-db
-    platform: linux/arm64
     restart: unless-stopped
     environment:
       MYSQL_ROOT_PASSWORD: p@ssw0rd
@@ -17,17 +16,10 @@ services:
       timeout: 5s
       retries: 5
       start_period: 20s
-    networks:
-      - dvwa-network
 
   dvwa-web:
-    build:
-      context: .
-      dockerfile: Dockerfile
-      platforms:
-        - linux/arm64
+    build: .
     container_name: dvwa-web
-    platform: linux/arm64
     restart: unless-stopped
     ports:
       - "8081:80"
@@ -39,20 +31,12 @@ services:
       DB_DATABASE: dvwa
       DB_USER: dvwa
       DB_PASSWORD: p@ssw0rd
-    volumes:
-      - ./config:/var/www/html/config
     healthcheck:
       test: ["CMD", "curl", "-f", "http://localhost/login.php"]
       interval: 15s
       timeout: 5s
       retries: 5
       start_period: 30s
-    networks:
-      - dvwa-network
 
 volumes:
   dvwa-db-data:
-
-networks:
-  dvwa-network:
-    driver: bridge
