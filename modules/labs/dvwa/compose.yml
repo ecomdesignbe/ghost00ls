@@ -41,6 +41,8 @@ services:
       DB_PASSWORD: p@ssw0rd
     volumes:
       - ./config:/var/www/html/config
+      - ./entrypoint-patch.sh:/entrypoint-patch.sh:ro
+    command: ["/entrypoint-patch.sh"]
     healthcheck:
       test: ["CMD", "curl", "-f", "http://localhost/login.php"]
       interval: 15s
@@ -56,3 +58,8 @@ volumes:
 networks:
   dvwa-network:
     driver: bridge
+    ipam:
+      driver: default
+      config:
+        - subnet: 172.80.10.0/24
+          gateway: 172.80.10.1
