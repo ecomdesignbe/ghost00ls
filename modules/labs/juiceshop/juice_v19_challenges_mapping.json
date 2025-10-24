@@ -1,0 +1,882 @@
+[
+  {
+    "name": "Web3 Sandbox",
+    "key": "web3SandboxChallenge",
+    "difficulty": 1,
+    "category": "Broken Access Control",
+    "solved": false,
+    "description": "Find an accidentally deployed code sandbox for writing smart contracts on the fly."
+  },
+  {
+    "name": "Confidential Document",
+    "key": "directoryListingChallenge",
+    "difficulty": 1,
+    "category": "Sensitive Data Exposure",
+    "solved": true,
+    "description": "Access a confidential document."
+  },
+  {
+    "name": "DOM XSS",
+    "key": "localXssChallenge",
+    "difficulty": 1,
+    "category": "XSS",
+    "solved": false,
+    "description": "Perform a <i>DOM</i> XSS attack with <code>&lt;iframe src=\"javascript:alert(`xss`)\"&gt;</code>."
+  },
+  {
+    "name": "Error Handling",
+    "key": "errorHandlingChallenge",
+    "difficulty": 1,
+    "category": "Security Misconfiguration",
+    "solved": true,
+    "description": "Provoke an error that is neither very gracefully nor consistently handled."
+  },
+  {
+    "name": "Outdated Allowlist",
+    "key": "redirectCryptoCurrencyChallenge",
+    "difficulty": 1,
+    "category": "Unvalidated Redirects",
+    "solved": false,
+    "description": "Let us redirect you to one of our crypto currency addresses which are not promoted any longer."
+  },
+  {
+    "name": "Privacy Policy",
+    "key": "privacyPolicyChallenge",
+    "difficulty": 1,
+    "category": "Miscellaneous",
+    "solved": false,
+    "description": "Read our privacy policy."
+  },
+  {
+    "name": "Repetitive Registration",
+    "key": "passwordRepeatChallenge",
+    "difficulty": 1,
+    "category": "Improper Input Validation",
+    "solved": false,
+    "description": "Follow the DRY principle while registering a user."
+  },
+  {
+    "name": "Score Board",
+    "key": "scoreBoardChallenge",
+    "difficulty": 1,
+    "category": "Miscellaneous",
+    "solved": true,
+    "description": "Find the carefully hidden 'Score Board' page."
+  },
+  {
+    "name": "Zero Stars",
+    "key": "zeroStarsChallenge",
+    "difficulty": 1,
+    "category": "Improper Input Validation",
+    "solved": false,
+    "description": "Give a devastating zero-star feedback to the store."
+  },
+  {
+    "name": "Missing Encoding",
+    "key": "missingEncodingChallenge",
+    "difficulty": 1,
+    "category": "Improper Input Validation",
+    "solved": false,
+    "description": "Retrieve the photo of Bjoern's cat in \"melee combat-mode\"."
+  },
+  {
+    "name": "Exposed Metrics",
+    "key": "exposedMetricsChallenge",
+    "difficulty": 1,
+    "category": "Sensitive Data Exposure",
+    "solved": true,
+    "description": "Find the endpoint that serves usage data to be scraped by a <a href=\"https://github.com/prometheus/prometheus\">popular monitoring system</a>."
+  },
+  {
+    "name": "Bonus Payload",
+    "key": "xssBonusChallenge",
+    "difficulty": 1,
+    "category": "XSS",
+    "solved": false,
+    "description": "Use the bonus payload <code>&lt;iframe width=&quot;100%&quot; height=&quot;166&quot; scrolling=&quot;no&quot; frameborder=&quot;no&quot; allow=&quot;autoplay&quot; src=&quot;https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/771984076&amp;color=%23ff5500&amp;auto_play=true&amp;hide_related=false&amp;show_comments=true&amp;show_user=true&amp;show_reposts=false&amp;show_teaser=true&quot;&gt;&lt;/iframe&gt;</code> in the <i>DOM XSS</i> challenge."
+  },
+  {
+    "name": "Bully Chatbot",
+    "key": "bullyChatbotChallenge",
+    "difficulty": 1,
+    "category": "Miscellaneous",
+    "solved": false,
+    "description": "Receive a coupon code from the support chatbot."
+  },
+  {
+    "name": "Mass Dispel",
+    "key": "closeNotificationsChallenge",
+    "difficulty": 1,
+    "category": "Miscellaneous",
+    "solved": false,
+    "description": "Close multiple \"Challenge solved\"-notifications in one go."
+  },
+  {
+    "name": "Admin Section",
+    "key": "adminSectionChallenge",
+    "difficulty": 2,
+    "category": "Broken Access Control",
+    "solved": false,
+    "description": "Access the administration section of the store."
+  },
+  {
+    "name": "NFT Takeover",
+    "key": "nftUnlockChallenge",
+    "difficulty": 2,
+    "category": "Sensitive Data Exposure",
+    "solved": false,
+    "description": "Take over the wallet containing our official Soul Bound Token (NFT)."
+  },
+  {
+    "name": "Deprecated Interface",
+    "key": "deprecatedInterfaceChallenge",
+    "difficulty": 2,
+    "category": "Security Misconfiguration",
+    "solved": false,
+    "description": "Use a deprecated B2B interface that was not properly shut down."
+  },
+  {
+    "name": "Empty User Registration",
+    "key": "emptyUserRegistration",
+    "difficulty": 2,
+    "category": "Improper Input Validation",
+    "solved": false,
+    "description": "Register a user with an empty email and password."
+  },
+  {
+    "name": "Five-Star Feedback",
+    "key": "feedbackChallenge",
+    "difficulty": 2,
+    "category": "Broken Access Control",
+    "solved": false,
+    "description": "Get rid of all 5-star customer feedback."
+  },
+  {
+    "name": "Login Admin",
+    "key": "loginAdminChallenge",
+    "difficulty": 2,
+    "category": "Injection",
+    "solved": true,
+    "description": "Log in with the administrator's user account."
+  },
+  {
+    "name": "Login MC SafeSearch",
+    "key": "loginRapperChallenge",
+    "difficulty": 2,
+    "category": "Sensitive Data Exposure",
+    "solved": false,
+    "description": "Log in with MC SafeSearch's original user credentials without applying SQL Injection or any other bypass."
+  },
+  {
+    "name": "Password Strength",
+    "key": "weakPasswordChallenge",
+    "difficulty": 2,
+    "category": "Broken Authentication",
+    "solved": false,
+    "description": "Log in with the administrator's user credentials without previously changing them or applying SQL Injection."
+  },
+  {
+    "name": "Reflected XSS",
+    "key": "reflectedXssChallenge",
+    "difficulty": 2,
+    "category": "XSS",
+    "solved": false,
+    "description": "Perform a <i>reflected</i> XSS attack with <code>&lt;iframe src=\"javascript:alert(`xss`)\"&gt;</code>. <em>(This challenge is <strong>potentially harmful</strong> on Docker!)</em>"
+  },
+  {
+    "name": "Security Policy",
+    "key": "securityPolicyChallenge",
+    "difficulty": 2,
+    "category": "Miscellaneous",
+    "solved": false,
+    "description": "Behave like any \"white-hat\" should before getting into the action."
+  },
+  {
+    "name": "View Basket",
+    "key": "basketAccessChallenge",
+    "difficulty": 2,
+    "category": "Broken Access Control",
+    "solved": false,
+    "description": "View another user's shopping basket."
+  },
+  {
+    "name": "Weird Crypto",
+    "key": "weirdCryptoChallenge",
+    "difficulty": 2,
+    "category": "Cryptographic Issues",
+    "solved": false,
+    "description": "<a href=\"/#/contact\">Inform the shop</a> about an algorithm or library it should definitely not use the way it does."
+  },
+  {
+    "name": "Meta Geo Stalking",
+    "key": "geoStalkingMetaChallenge",
+    "difficulty": 2,
+    "category": "Sensitive Data Exposure",
+    "solved": false,
+    "description": "Determine the answer to John's security question by looking at an upload of him to the Photo Wall and use it to reset his password via the <a href=\"/#/forgot-password\">Forgot Password</a> mechanism."
+  },
+  {
+    "name": "Visual Geo Stalking",
+    "key": "geoStalkingVisualChallenge",
+    "difficulty": 2,
+    "category": "Sensitive Data Exposure",
+    "solved": false,
+    "description": "Determine the answer to Emma's security question by looking at an upload of her to the Photo Wall and use it to reset her password via the <a href=\"/#/forgot-password\">Forgot Password</a> mechanism."
+  },
+  {
+    "name": "Exposed credentials",
+    "key": "exposedCredentialsChallenge",
+    "difficulty": 2,
+    "category": "Sensitive Data Exposure",
+    "solved": false,
+    "description": "A developer was careless with hardcoding unused, but still valid credentials for a testing account on the client-side."
+  },
+  {
+    "name": "API-only XSS",
+    "key": "restfulXssChallenge",
+    "difficulty": 3,
+    "category": "XSS",
+    "solved": false,
+    "description": "Perform a <i>persisted</i> XSS attack with <code>&lt;iframe src=\"javascript:alert(`xss`)\"&gt;</code> without using the frontend application at all. <em>(This challenge is <strong>potentially harmful</strong> on Docker!)</em>"
+  },
+  {
+    "name": "Admin Registration",
+    "key": "registerAdminChallenge",
+    "difficulty": 3,
+    "category": "Improper Input Validation",
+    "solved": false,
+    "description": "Register as a user with administrator privileges."
+  },
+  {
+    "name": "Bjoern's Favorite Pet",
+    "key": "resetPasswordBjoernOwaspChallenge",
+    "difficulty": 3,
+    "category": "Broken Authentication",
+    "solved": false,
+    "description": "Reset the password of Bjoern's OWASP account via the <a href=\"/#/forgot-password\">Forgot Password</a> mechanism with <i>the original answer</i> to his security question."
+  },
+  {
+    "name": "Mint the Honey Pot",
+    "key": "nftMintChallenge",
+    "difficulty": 3,
+    "category": "Improper Input Validation",
+    "solved": false,
+    "description": "Mint the Honey Pot NFT by gathering BEEs from the bee haven."
+  },
+  {
+    "name": "CAPTCHA Bypass",
+    "key": "captchaBypassChallenge",
+    "difficulty": 3,
+    "category": "Broken Anti Automation",
+    "solved": false,
+    "description": "Submit 10 or more customer feedbacks within 20 seconds."
+  },
+  {
+    "name": "Client-side XSS Protection",
+    "key": "persistedXssUserChallenge",
+    "difficulty": 3,
+    "category": "XSS",
+    "solved": false,
+    "description": "Perform a <i>persisted</i> XSS attack with <code>&lt;iframe src=\"javascript:alert(`xss`)\"&gt;</code> bypassing a <i>client-side</i> security mechanism. <em>(This challenge is <strong>potentially harmful</strong> on Docker!)</em>"
+  },
+  {
+    "name": "Database Schema",
+    "key": "dbSchemaChallenge",
+    "difficulty": 3,
+    "category": "Injection",
+    "solved": false,
+    "description": "Exfiltrate the entire DB schema definition via SQL Injection."
+  },
+  {
+    "name": "Forged Feedback",
+    "key": "forgedFeedbackChallenge",
+    "difficulty": 3,
+    "category": "Broken Access Control",
+    "solved": false,
+    "description": "Post some feedback in another user's name."
+  },
+  {
+    "name": "Forged Review",
+    "key": "forgedReviewChallenge",
+    "difficulty": 3,
+    "category": "Broken Access Control",
+    "solved": false,
+    "description": "Post a product review as another user or edit any user's existing review."
+  },
+  {
+    "name": "GDPR Data Erasure",
+    "key": "ghostLoginChallenge",
+    "difficulty": 3,
+    "category": "Broken Authentication",
+    "solved": false,
+    "description": "Log in with Chris' erased user account."
+  },
+  {
+    "name": "Login Amy",
+    "key": "loginAmyChallenge",
+    "difficulty": 3,
+    "category": "Sensitive Data Exposure",
+    "solved": false,
+    "description": "Log in with Amy's original user credentials. (This could take 93.83 billion trillion trillion centuries to brute force, but luckily she did not read the \"One Important Final Note\")"
+  },
+  {
+    "name": "Login Bender",
+    "key": "loginBenderChallenge",
+    "difficulty": 3,
+    "category": "Injection",
+    "solved": false,
+    "description": "Log in with Bender's user account."
+  },
+  {
+    "name": "Login Jim",
+    "key": "loginJimChallenge",
+    "difficulty": 3,
+    "category": "Injection",
+    "solved": false,
+    "description": "Log in with Jim's user account."
+  },
+  {
+    "name": "Manipulate Basket",
+    "key": "basketManipulateChallenge",
+    "difficulty": 3,
+    "category": "Broken Access Control",
+    "solved": false,
+    "description": "Put an additional product into another user's shopping basket."
+  },
+  {
+    "name": "Payback Time",
+    "key": "negativeOrderChallenge",
+    "difficulty": 3,
+    "category": "Improper Input Validation",
+    "solved": false,
+    "description": "Place an order that makes you rich."
+  },
+  {
+    "name": "Privacy Policy Inspection",
+    "key": "privacyPolicyProofChallenge",
+    "difficulty": 3,
+    "category": "Security through Obscurity",
+    "solved": false,
+    "description": "Prove that you actually read our privacy policy."
+  },
+  {
+    "name": "Product Tampering",
+    "key": "changeProductChallenge",
+    "difficulty": 3,
+    "category": "Broken Access Control",
+    "solved": false,
+    "description": "Change the <code>href</code> of the link within the <a href=\"/#/search?q=OWASP SSL Advanced Forensic Tool (O-Saft)\">OWASP SSL Advanced Forensic Tool (O-Saft)</a> product description into <i>https://owasp.slack.com</i>."
+  },
+  {
+    "name": "Reset Jim's Password",
+    "key": "resetPasswordJimChallenge",
+    "difficulty": 3,
+    "category": "Broken Authentication",
+    "solved": false,
+    "description": "Reset Jim's password via the <a href=\"/#/forgot-password\">Forgot Password</a> mechanism with <i>the original answer</i> to his security question."
+  },
+  {
+    "name": "Upload Size",
+    "key": "uploadSizeChallenge",
+    "difficulty": 3,
+    "category": "Improper Input Validation",
+    "solved": false,
+    "description": "Upload a file larger than 100 kB."
+  },
+  {
+    "name": "Upload Type",
+    "key": "uploadTypeChallenge",
+    "difficulty": 3,
+    "category": "Improper Input Validation",
+    "solved": false,
+    "description": "Upload a file that has no .pdf or .zip extension."
+  },
+  {
+    "name": "XXE Data Access",
+    "key": "xxeFileDisclosureChallenge",
+    "difficulty": 3,
+    "category": "XXE",
+    "solved": false,
+    "description": "Retrieve the content of <code>C:\\Windows\\system.ini</code> or <code>/etc/passwd</code> from the server. <em>(This challenge is <strong>potentially harmful</strong> on Docker!)</em>"
+  },
+  {
+    "name": "Deluxe Fraud",
+    "key": "freeDeluxeChallenge",
+    "difficulty": 3,
+    "category": "Improper Input Validation",
+    "solved": false,
+    "description": "Obtain a Deluxe Membership without paying for it."
+  },
+  {
+    "name": "CSRF",
+    "key": "csrfChallenge",
+    "difficulty": 3,
+    "category": "Broken Access Control",
+    "solved": false,
+    "description": "Change the name of a user by performing Cross-Site Request Forgery from <a href=\"http://htmledit.squarefree.com\">another origin</a>."
+  },
+  {
+    "name": "Security Advisory",
+    "key": "csafChallenge",
+    "difficulty": 3,
+    "category": "Miscellaneous",
+    "solved": false,
+    "description": "The Juice Shop is susceptible to a known vulnerability in a library, for which an advisory has already been issued, marking the Juice Shop as <i>known affected</i>. A fix is still pending. <a href=\"/#/contact\">Inform the shop</a> about a suitable checksum as proof that you did your due diligence."
+  },
+  {
+    "name": "Access Log",
+    "key": "accessLogDisclosureChallenge",
+    "difficulty": 4,
+    "category": "Sensitive Data Exposure",
+    "solved": false,
+    "description": "Gain access to any access log file of the server."
+  },
+  {
+    "name": "Christmas Special",
+    "key": "christmasSpecialChallenge",
+    "difficulty": 4,
+    "category": "Injection",
+    "solved": false,
+    "description": "Order the Christmas special offer of 2014."
+  },
+  {
+    "name": "CSP Bypass",
+    "key": "usernameXssChallenge",
+    "difficulty": 4,
+    "category": "XSS",
+    "solved": false,
+    "description": "Bypass the Content Security Policy and perform an XSS attack with <code>&lt;script&gt;alert(`xss`)&lt;/script&gt;</code> on a legacy page within the application. <em>(This challenge is <strong>potentially harmful</strong> on Docker!)</em>"
+  },
+  {
+    "name": "Easter Egg",
+    "key": "easterEggLevelOneChallenge",
+    "difficulty": 4,
+    "category": "Broken Access Control",
+    "solved": false,
+    "description": "Find the hidden <a href=\"https://en.wikipedia.org/wiki/Easter_egg_(media)\" target=\"_blank\">easter egg</a>."
+  },
+  {
+    "name": "Ephemeral Accountant",
+    "key": "ephemeralAccountantChallenge",
+    "difficulty": 4,
+    "category": "Injection",
+    "solved": false,
+    "description": "Log in with the (non-existing) accountant <i>acc0unt4nt@juice-sh.op</i> without ever registering that user."
+  },
+  {
+    "name": "Expired Coupon",
+    "key": "manipulateClockChallenge",
+    "difficulty": 4,
+    "category": "Improper Input Validation",
+    "solved": false,
+    "description": "Successfully redeem an expired campaign coupon code."
+  },
+  {
+    "name": "Forgotten Developer Backup",
+    "key": "forgottenDevBackupChallenge",
+    "difficulty": 4,
+    "category": "Sensitive Data Exposure",
+    "solved": false,
+    "description": "Access a developer's forgotten backup file."
+  },
+  {
+    "name": "Forgotten Sales Backup",
+    "key": "forgottenBackupChallenge",
+    "difficulty": 4,
+    "category": "Sensitive Data Exposure",
+    "solved": false,
+    "description": "Access a salesman's forgotten backup file."
+  },
+  {
+    "name": "GDPR Data Theft",
+    "key": "dataExportChallenge",
+    "difficulty": 4,
+    "category": "Sensitive Data Exposure",
+    "solved": false,
+    "description": "Steal someone else's personal data without using Injection."
+  },
+  {
+    "name": "HTTP-Header XSS",
+    "key": "httpHeaderXssChallenge",
+    "difficulty": 4,
+    "category": "XSS",
+    "solved": false,
+    "description": "Perform a <i>persisted</i> XSS attack with <code>&lt;iframe src=\"javascript:alert(`xss`)\"&gt;</code> through an HTTP header. <em>(This challenge is <strong>potentially harmful</strong> on Docker!)</em>"
+  },
+  {
+    "name": "Leaked Unsafe Product",
+    "key": "dlpPastebinDataLeakChallenge",
+    "difficulty": 4,
+    "category": "Sensitive Data Exposure",
+    "solved": false,
+    "description": "Identify an unsafe product that was removed from the shop and <a href=\"/#/contact\">inform the shop</a> which ingredients are dangerous."
+  },
+  {
+    "name": "Legacy Typosquatting",
+    "key": "typosquattingNpmChallenge",
+    "difficulty": 4,
+    "category": "Vulnerable Components",
+    "solved": false,
+    "description": "<a href=\"/#/contact\">Inform the shop</a> about a <i>typosquatting</i> trick it has been a victim of at least in <code>v6.2.0-SNAPSHOT</code>. (Mention the exact name of the culprit)"
+  },
+  {
+    "name": "Login Bjoern",
+    "key": "oauthUserPasswordChallenge",
+    "difficulty": 4,
+    "category": "Broken Authentication",
+    "solved": false,
+    "description": "Log in with Bjoern's Gmail account <i>without</i> previously changing his password, applying SQL Injection, or hacking his Google account."
+  },
+  {
+    "name": "Misplaced Signature File",
+    "key": "misplacedSignatureFileChallenge",
+    "difficulty": 4,
+    "category": "Sensitive Data Exposure",
+    "solved": false,
+    "description": "Access a misplaced <a href=\"https://github.com/Neo23x0/sigma\">SIEM signature</a> file."
+  },
+  {
+    "name": "Nested Easter Egg",
+    "key": "easterEggLevelTwoChallenge",
+    "difficulty": 4,
+    "category": "Cryptographic Issues",
+    "solved": false,
+    "description": "Apply some advanced cryptanalysis to find <i>the real</i> easter egg."
+  },
+  {
+    "name": "NoSQL DoS",
+    "key": "noSqlCommandChallenge",
+    "difficulty": 4,
+    "category": "Injection",
+    "solved": false,
+    "description": "Let the server sleep for some time. (It has done more than enough hard work for you) <em>(This challenge is <strong>potentially harmful</strong> on Docker!)</em>"
+  },
+  {
+    "name": "NoSQL Manipulation",
+    "key": "noSqlReviewsChallenge",
+    "difficulty": 4,
+    "category": "Injection",
+    "solved": false,
+    "description": "Update multiple product reviews at the same time."
+  },
+  {
+    "name": "Reset Bender's Password",
+    "key": "resetPasswordBenderChallenge",
+    "difficulty": 4,
+    "category": "Broken Authentication",
+    "solved": false,
+    "description": "Reset Bender's password via the <a href=\"/#/forgot-password\">Forgot Password</a> mechanism with <i>the original answer</i> to his security question."
+  },
+  {
+    "name": "Server-side XSS Protection",
+    "key": "persistedXssFeedbackChallenge",
+    "difficulty": 4,
+    "category": "XSS",
+    "solved": false,
+    "description": "Perform a <i>persisted</i> XSS attack with <code>&lt;iframe src=\"javascript:alert(`xss`)\"&gt;</code> bypassing a <i>server-side</i> security mechanism. <em>(This challenge is <strong>potentially harmful</strong> on Docker!)</em>"
+  },
+  {
+    "name": "Steganography",
+    "key": "hiddenImageChallenge",
+    "difficulty": 4,
+    "category": "Security through Obscurity",
+    "solved": false,
+    "description": "<a href=\"/#/contact\">Rat out</a> a notorious character hiding in plain sight in the shop. (Mention the exact name of the character)"
+  },
+  {
+    "name": "User Credentials",
+    "key": "unionSqlInjectionChallenge",
+    "difficulty": 4,
+    "category": "Injection",
+    "solved": false,
+    "description": "Retrieve a list of all user credentials via SQL Injection."
+  },
+  {
+    "name": "Vulnerable Library",
+    "key": "knownVulnerableComponentChallenge",
+    "difficulty": 4,
+    "category": "Vulnerable Components",
+    "solved": false,
+    "description": "<a href=\"/#/contact\">Inform the shop</a> about a vulnerable library it is using. (Mention the exact library name and version in your comment)"
+  },
+  {
+    "name": "Allowlist Bypass",
+    "key": "redirectChallenge",
+    "difficulty": 4,
+    "category": "Unvalidated Redirects",
+    "solved": false,
+    "description": "Enforce a redirect to a page you are not supposed to redirect to."
+  },
+  {
+    "name": "Reset Uvogin's Password",
+    "key": "resetPasswordUvoginChallenge",
+    "difficulty": 4,
+    "category": "Sensitive Data Exposure",
+    "solved": false,
+    "description": "Reset Uvogin's password via the <a href=\"/#/forgot-password\">Forgot Password</a> mechanism with <i>the original answer</i> to his security question."
+  },
+  {
+    "name": "Poison Null Byte",
+    "key": "nullByteChallenge",
+    "difficulty": 4,
+    "category": "Improper Input Validation",
+    "solved": false,
+    "description": "Bypass a security control with a <a href=\"https://hakipedia.com/index.php/Poison_Null_Byte\">Poison Null Byte</a> to access a file not meant for your eyes."
+  },
+  {
+    "name": "Blockchain Hype",
+    "key": "tokenSaleChallenge",
+    "difficulty": 5,
+    "category": "Security through Obscurity",
+    "solved": false,
+    "description": "Learn about the Token Sale before its official announcement."
+  },
+  {
+    "name": "Blocked RCE DoS",
+    "key": "rceChallenge",
+    "difficulty": 5,
+    "category": "Insecure Deserialization",
+    "solved": false,
+    "description": "Perform a Remote Code Execution that would keep a less hardened application busy <em>forever</em>. <em>(This challenge is <strong>potentially harmful</strong> on Docker!)</em>"
+  },
+  {
+    "name": "Change Bender's Password",
+    "key": "changePasswordBenderChallenge",
+    "difficulty": 5,
+    "category": "Broken Authentication",
+    "solved": false,
+    "description": "Change Bender's password into <i>slurmCl4ssic</i> without using SQL Injection or Forgot Password."
+  },
+  {
+    "name": "Email Leak",
+    "key": "emailLeakChallenge",
+    "difficulty": 5,
+    "category": "Sensitive Data Exposure",
+    "solved": false,
+    "description": "Perform an unwanted information disclosure by accessing data cross-domain."
+  },
+  {
+    "name": "Extra Language",
+    "key": "extraLanguageChallenge",
+    "difficulty": 5,
+    "category": "Broken Anti Automation",
+    "solved": false,
+    "description": "First you should find out how the languages are technically changed in the user interface."
+  },
+  {
+    "name": "Frontend Typosquatting",
+    "key": "typosquattingAngularChallenge",
+    "difficulty": 5,
+    "category": "Vulnerable Components",
+    "solved": false,
+    "description": "<a href=\"/#/contact\">Inform the shop</a> about a <i>typosquatting</i> imposter that dug itself deep into the frontend. (Mention the exact name of the culprit)"
+  },
+  {
+    "name": "Leaked Access Logs",
+    "key": "dlpPasswordSprayingChallenge",
+    "difficulty": 5,
+    "category": "Sensitive Data Exposure",
+    "solved": false,
+    "description": "Dumpster dive the Internet for a leaked password and log in to the original user account it belongs to. (Creating a new account with the same password does not qualify as a solution.)"
+  },
+  {
+    "name": "NoSQL Exfiltration",
+    "key": "noSqlOrdersChallenge",
+    "difficulty": 5,
+    "category": "Injection",
+    "solved": false,
+    "description": "All your orders are belong to us! Even the ones which don't. <em>(This challenge is <strong>potentially harmful</strong> on Docker!)</em>"
+  },
+  {
+    "name": "Reset Bjoern's Password",
+    "key": "resetPasswordBjoernChallenge",
+    "difficulty": 5,
+    "category": "Broken Authentication",
+    "solved": false,
+    "description": "Reset the password of Bjoern's internal account via the <a href=\"/#/forgot-password\">Forgot Password</a> mechanism with <i>the original answer</i> to his security question."
+  },
+  {
+    "name": "Reset Morty's Password",
+    "key": "resetPasswordMortyChallenge",
+    "difficulty": 5,
+    "category": "Broken Anti Automation",
+    "solved": false,
+    "description": "Reset Morty's password via the <a href=\"/#/forgot-password\">Forgot Password</a> mechanism with <i>his obfuscated answer</i> to his security question."
+  },
+  {
+    "name": "Retrieve Blueprint",
+    "key": "retrieveBlueprintChallenge",
+    "difficulty": 5,
+    "category": "Sensitive Data Exposure",
+    "solved": false,
+    "description": "Deprive the shop of earnings by downloading the blueprint for one of its products."
+  },
+  {
+    "name": "Supply Chain Attack",
+    "key": "supplyChainAttackChallenge",
+    "difficulty": 5,
+    "category": "Vulnerable Components",
+    "solved": false,
+    "description": "<a href=\"/#/contact\">Inform the development team</a> about a danger to some of <em>their</em> credentials. (Send them the URL of the <em>original report</em> or an assigned CVE or another identifier of this vulnerability)"
+  },
+  {
+    "name": "Two Factor Authentication",
+    "key": "twoFactorAuthUnsafeSecretStorageChallenge",
+    "difficulty": 5,
+    "category": "Broken Authentication",
+    "solved": false,
+    "description": "Solve the 2FA challenge for user \"wurstbrot\". (Disabling, bypassing or overwriting his 2FA settings does not count as a solution)"
+  },
+  {
+    "name": "Unsigned JWT",
+    "key": "jwtUnsignedChallenge",
+    "difficulty": 5,
+    "category": "Vulnerable Components",
+    "solved": false,
+    "description": "Forge an essentially unsigned JWT token that impersonates the (non-existing) user <i>jwtn3d@juice-sh.op</i>."
+  },
+  {
+    "name": "XXE DoS",
+    "key": "xxeDosChallenge",
+    "difficulty": 5,
+    "category": "XXE",
+    "solved": false,
+    "description": "Give the server something to chew on for quite a while. <em>(This challenge is <strong>potentially harmful</strong> on Docker!)</em>"
+  },
+  {
+    "name": "Memory Bomb",
+    "key": "yamlBombChallenge",
+    "difficulty": 5,
+    "category": "Insecure Deserialization",
+    "solved": false,
+    "description": "Drop some explosive data into a vulnerable file-handling endpoint. <em>(This challenge is <strong>potentially harmful</strong> on Docker!)</em>"
+  },
+  {
+    "name": "Cross-Site Imaging",
+    "key": "svgInjectionChallenge",
+    "difficulty": 5,
+    "category": "Security Misconfiguration",
+    "solved": false,
+    "description": "Stick <a href=\"https://cataas.com/cat\" target=\"_blank\">cute cross-domain kittens</a> all over our delivery boxes."
+  },
+  {
+    "name": "Kill Chatbot",
+    "key": "killChatbotChallenge",
+    "difficulty": 5,
+    "category": "Vulnerable Components",
+    "solved": false,
+    "description": "Permanently disable the support chatbot so that it can no longer answer customer queries."
+  },
+  {
+    "name": "Local File Read",
+    "key": "lfrChallenge",
+    "difficulty": 5,
+    "category": "Vulnerable Components",
+    "solved": false,
+    "description": "Gain read access to an arbitrary local file on the web server. <em>(This challenge is <strong>potentially harmful</strong> on Docker!)</em>"
+  },
+  {
+    "name": "Leaked API Key",
+    "key": "leakedApiKeyChallenge",
+    "difficulty": 5,
+    "category": "Sensitive Data Exposure",
+    "solved": false,
+    "description": "<a href=\"/#/contact\">Inform the shop</a> about a leaked API key. (Mention the exact key in your comment)"
+  },
+  {
+    "name": "Arbitrary File Write",
+    "key": "fileWriteChallenge",
+    "difficulty": 6,
+    "category": "Vulnerable Components",
+    "solved": false,
+    "description": "Overwrite the <a href=\"/ftp/legal.md\">Legal Information</a> file. <em>(This challenge is <strong>potentially harmful</strong> on Docker!)</em>"
+  },
+  {
+    "name": "Wallet Depletion",
+    "key": "web3WalletChallenge",
+    "difficulty": 6,
+    "category": "Miscellaneous",
+    "solved": false,
+    "description": "Withdraw more ETH from the new wallet than you deposited."
+  },
+  {
+    "name": "Forged Coupon",
+    "key": "forgedCouponChallenge",
+    "difficulty": 6,
+    "category": "Cryptographic Issues",
+    "solved": false,
+    "description": "Forge a coupon code that gives you a discount of at least 80%."
+  },
+  {
+    "name": "Forged Signed JWT",
+    "key": "jwtForgedChallenge",
+    "difficulty": 6,
+    "category": "Vulnerable Components",
+    "solved": false,
+    "description": "Forge an almost properly RSA-signed JWT token that impersonates the (non-existing) user <i>rsa_lord@juice-sh.op</i>."
+  },
+  {
+    "name": "Imaginary Challenge",
+    "key": "continueCodeChallenge",
+    "difficulty": 6,
+    "category": "Cryptographic Issues",
+    "solved": false,
+    "description": "Solve challenge #999. Unfortunately, this challenge does not exist."
+  },
+  {
+    "name": "Login Support Team",
+    "key": "loginSupportChallenge",
+    "difficulty": 6,
+    "category": "Security Misconfiguration",
+    "solved": false,
+    "description": "Log in with the support team's original user credentials without applying SQL Injection or any other bypass."
+  },
+  {
+    "name": "Multiple Likes",
+    "key": "timingAttackChallenge",
+    "difficulty": 6,
+    "category": "Broken Anti Automation",
+    "solved": false,
+    "description": "Like any review at least three times as the same user."
+  },
+  {
+    "name": "Premium Paywall",
+    "key": "premiumPaywallChallenge",
+    "difficulty": 6,
+    "category": "Cryptographic Issues",
+    "solved": false,
+    "description": "<i class=\"far fa-gem\"></i><i class=\"far fa-gem\"></i><i class=\"far fa-gem\"></i><i class=\"far fa-gem\"></i><i class=\"far fa-gem\"></i><!--IvLuRfBJYlmStf9XfL6ckJFngyd9LfV1JaaN/KRTPQPidTuJ7FR+D/nkWJUF+0xUF07CeCeqYfxq+OJVVa0gNbqgYkUNvn//UbE7e95C+6e+7GtdpqJ8mqm4WcPvUGIUxmGLTTAC2+G9UuFCD1DUjg==--> <a href=\"https://blockchain.info/address/1AbKfgvw9psQ41NbLi8kufDQTezwG8DRZm\" target=\"_blank\"><i class=\"fab fa-btc fa-sm\"></i> Unlock Premium Challenge</a> to access exclusive content."
+  },
+  {
+    "name": "SSRF",
+    "key": "ssrfChallenge",
+    "difficulty": 6,
+    "category": "Broken Access Control",
+    "solved": false,
+    "description": "Request a hidden resource on server through server."
+  },
+  {
+    "name": "SSTi",
+    "key": "sstiChallenge",
+    "difficulty": 6,
+    "category": "Injection",
+    "solved": false,
+    "description": "Infect the server with juicy malware by abusing arbitrary command execution. <em>(This challenge is <strong>potentially harmful</strong> on Docker!)</em>"
+  },
+  {
+    "name": "Successful RCE DoS",
+    "key": "rceOccupyChallenge",
+    "difficulty": 6,
+    "category": "Insecure Deserialization",
+    "solved": false,
+    "description": "Perform a Remote Code Execution that occupies the server for a while without using infinite loops. <em>(This challenge is <strong>potentially harmful</strong> on Docker!)</em>"
+  },
+  {
+    "name": "Video XSS",
+    "key": "videoXssChallenge",
+    "difficulty": 6,
+    "category": "XSS",
+    "solved": false,
+    "description": "Embed an XSS payload <code>&lt;/script&gt;&lt;script&gt;alert(`xss`)&lt;/script&gt;</code> into our promo video. <em>(This challenge is <strong>potentially harmful</strong> on Docker!)</em>"
+  }
+]
